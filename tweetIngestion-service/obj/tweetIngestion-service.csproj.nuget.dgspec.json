@@ -38,6 +38,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "CassandraCSharpDriver": {
+              "target": "Package",
+              "version": "[3.19.2, )"
+            },
             "EFCore.Cassandra": {
               "target": "Package",
               "version": "[2.0.5, )"
@@ -71,6 +75,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "System.Security.Cryptography.X509Certificates": {
+              "target": "Package",
+              "version": "[4.3.2, )"
             }
           },
           "imports": [
