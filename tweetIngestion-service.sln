@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tweetIngestion-service", "tweetIngestion-service\tweetIngestion-service.csproj", "{998F4F0E-0265-42FD-860A-AC8C7688138E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{998F4F0E-0265-42FD-860A-AC8C7688138E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{998F4F0E-0265-42FD-860A-AC8C7688138E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{998F4F0E-0265-42FD-860A-AC8C7688138E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{998F4F0E-0265-42FD-860A-AC8C7688138E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
