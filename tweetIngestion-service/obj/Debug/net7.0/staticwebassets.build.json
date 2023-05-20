@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "l8EVw5x1m3cdFa/vdiEsQmJCp+VHDhT0262b3b+BNus=",
+  "Source": "tweetIngestion-service",
+  "BasePath": "_content/tweetIngestion-service",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

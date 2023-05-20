@@ -14,7 +14,7 @@ public class ApplicationDbContext:DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<TweetEntity>().HasKey(nameof(TweetEntity.Id));
+        modelBuilder.Entity<Tweets>().HasKey(nameof(Models.Tweets.Id));
     }
-    public DbSet<TweetEntity> Tweets { get; set; }
+    public DbSet<Tweets> Tweets { get; set; }
 }
