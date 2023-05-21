@@ -1,25 +1,24 @@
 using System.Net.Security;
 using System.Security.Authentication;
+using System.Security.Cryptography.X509Certificates;
 using Cassandra;
 using Cassandra.Mapping;
-using Microsoft.AspNetCore.Mvc;
-using ISession = Cassandra.ISession;
-using System.Security.Cryptography.X509Certificates;
 using tweetIngestion_service.Models;
+using ISession = Cassandra.ISession;
 
-namespace tweetIngestion_service.Controllers;
+namespace tweetIngestion_service.Services;
 
-[ApiController]
-[Route("/api/[controller]")]
-public class TweetIngestionController:ControllerBase
+public class TweetIngestionService :ITweetIngestion
 {
     private ICluster _cluster;
     private ISession _session;
     private IMapper _mapper;
-    private string insertStatement  = "INSERT INTO  tweeter.tweets (tweetid , userid,creationtime,tweet,imageurl) VALUES (?,?,?,?,?)";
+    private string insertStatement  = "INSERT INTO  tweeteer.tweets (tweetid , userid,creationtime,tweet,imageurl) VALUES (?,?,?,?,?)";
 
-    public TweetIngestionController()
+
+    public TweetIngestionService()
     {
+       
         var options = new Cassandra.SSLOptions(SslProtocols.Tls12, true, ValidateServerCertificate);
         options.SetHostNameResolver((ipAddress) => "julioandre1.cassandra.cosmos.azure.com");
         _cluster = Cluster.Builder()
@@ -31,15 +30,10 @@ public class TweetIngestionController:ControllerBase
         _session = _cluster.Connect("tweeter");
         _mapper = new Mapper(_session);
     }
-
-   [HttpPost]
-    [Route("/tweets")]
-    public async Task<ActionResult<Tweets>> CreateTweets(Tweets tweets)
+    public void createTweet(Tweets tweet)
     {
-        
         var boundStatement = _session.Prepare(insertStatement);
-        _session.Execute(boundStatement.Bind(tweets.Id,tweets.UserID,tweets.CreationTime,tweets.tweet,tweets.ImageURL));
-        return CreatedAtRoute(nameof(tweets.Id), new{Id = tweets.Id},tweets);
+       _session.Execute(boundStatement.Bind(tweet.Id,tweet.UserID,tweet.CreationTime,tweet.tweet,tweet.ImageURL));
     }
     public static bool ValidateServerCertificate(
         object sender,

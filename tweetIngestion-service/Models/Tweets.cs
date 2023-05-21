@@ -14,4 +14,13 @@ public class Tweets
     [MaxLength(140)]
     public string tweet { get;set; }
     public string ImageURL { get;set; }
+
+    public Tweets(string Id, string UserID, DateTime CreationTime, string tweet, string imageUrl)
+    {
+        this.Id = Id;
+        this.UserID = UserID;
+        this.CreationTime = CreationTime;
+        this.tweet = tweet;
+        this.ImageURL = imageUrl;
+    }
 }
