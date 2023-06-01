@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "X7ktDnp1Sp3GKWtkmh9FfPCDf1yGX24A4Wi8vgFsjuU2/skoyHZ4ZMCmOYehTNngQkXeyWJJrCyyByh7PGzVBw==",
+  "dgSpecHash": "Ma/NMu8SgubHuwsr2ibdsS07UtA38cMIrrxk1Cwn/VzdjDUT8/+BVcWmDUYEvZWiAo4/dMr2jBqykCma/sXDWA==",
   "success": true,
   "projectFilePath": "/Users/julioandre/RiderProjects/tweetIngestion-service/tweetIngestion-service/tweetIngestion-service.csproj",
   "expectedPackageFiles": [

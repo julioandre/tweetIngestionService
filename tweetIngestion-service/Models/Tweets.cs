@@ -8,12 +8,15 @@ public class Tweets
 {
     
     public string Id{get; set;}
+    
     public string UserID{get; set;}
     public DateTime CreationTime{get; set;}= DateTime.Now;
     [Required]
     [MaxLength(140)]
-    public string tweet { get;set; }
-    public string ImageURL { get;set; }
+    public string tweet { get;set; }  
+    
+    
+    public string? ImageURL { get;set; }
 
     public Tweets(string Id, string UserID, DateTime CreationTime, string tweet, string imageUrl)
     {
