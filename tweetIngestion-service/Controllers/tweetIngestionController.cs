@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using ISession = Cassandra.ISession;
 using System.Security.Cryptography.X509Certificates;
 using tweetIngestion_service.Models;
+using tweetIngestion_service.Services;
 
 namespace tweetIngestion_service.Controllers
 {
@@ -17,24 +18,10 @@ namespace tweetIngestion_service.Controllers
         private ICluster _cluster;
         private ISession _session;
         private IMapper _mapper;
-        private string secondaryIndex = "CREATE INDEX ON tweeter.tweets (userid)";
-
-        private string insertStatement =
-            "INSERT INTO  tweeter.tweets (tweetid , userid,creationtime,tweet,imageurl) VALUES (?,?,?,?,?)";
-
-        public tweetIngestionController()
+        private ITweetIngestion _tweetIngestion;
+        public tweetIngestionController(ITweetIngestion tweetIngestion)
         {
-            var options = new Cassandra.SSLOptions(SslProtocols.Tls12, true, ValidateServerCertificate);
-            options.SetHostNameResolver((ipAddress) => "julioandre1.cassandra.cosmos.azure.com");
-            _cluster = Cluster.Builder()
-                .WithCredentials("julioandre1",
-                    "k0CHWInzxVJ3QlT6d2zPFW6WNkkuPs0sewU633IGfPdfoV0mpMlZih3rKXNym1iUiQjqHznXOYewACDbXoKsKQ==")
-                .WithPort(10350)
-                .AddContactPoint("julioandre1.cassandra.cosmos.azure.com")
-                .WithSSL(options)
-                .Build();
-            _session = _cluster.Connect("tweeter");
-            _mapper = new Mapper(_session);
+           _tweetIngestion = tweetIngestion;
         }
 
         [HttpPost]
@@ -42,20 +29,25 @@ namespace tweetIngestion_service.Controllers
         public async Task<ActionResult<Tweets>> CreateTweets(Tweets tweets)
         {
 
-            var boundStatement = _session.Prepare(insertStatement);
-            _session.Execute(boundStatement.Bind(tweets.Id, tweets.UserID, tweets.CreationTime, tweets.tweet,
-                tweets.ImageURL));
+            _tweetIngestion.createTweet(tweets);
             return Ok(CreatedAtRoute(nameof(tweets.Id), new { Id = tweets.Id }, tweets));
         }
 
         [HttpGet]
-        [Route("/tweets")]
+        [Route("/timelinetweets")]
 
-        public async Task<ActionResult<IEnumerable<Tweets>>> GetTweets(string userId)
+        public async Task<ActionResult<IEnumerable<Tweets>>> GetTimelineTweets(IEnumerable<string> userIds)
         {
-            _session.Execute(secondaryIndex);
-            var listOfTweets = _mapper.Fetch<Tweets>("Select * from tweets where userid = ?", userId);
-            return Ok(listOfTweets);
+            var timeline = _tweetIngestion.GetTweetsTimeline(userIds);
+            return Ok(timeline);
+        }
+        [HttpGet]
+        [Route("/tweetsbyuser")]
+
+        public async Task<ActionResult<IEnumerable<Tweets>>> GetTweetsByUser(string userId)
+        {
+            var tweets = _tweetIngestion.GetTweetsByUser(userId);
+            return Ok(tweets);
         }
 
         public static bool ValidateServerCertificate(

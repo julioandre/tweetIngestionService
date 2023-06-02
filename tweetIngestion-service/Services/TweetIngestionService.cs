@@ -14,7 +14,7 @@ public class TweetIngestionService :ITweetIngestion
     private ISession _session;
     private IMapper _mapper;
     private string insertStatement  = "INSERT INTO  tweeteer.tweets (tweetid , userid,creationtime,tweet,imageurl) VALUES (?,?,?,?,?)";
-
+    //private string deleteStatement = "DELETE FROM tweeteer.tweets WHERE (tweetid) VAlLUES (?)";
 
     public TweetIngestionService()
     {
@@ -32,8 +32,54 @@ public class TweetIngestionService :ITweetIngestion
     }
     public void createTweet(Tweets tweet)
     {
+        
         var boundStatement = _session.Prepare(insertStatement);
-       _session.Execute(boundStatement.Bind(tweet.Id,tweet.UserID,tweet.CreationTime,tweet.tweet,tweet.ImageURL));
+        try
+        {
+            _session.Execute(boundStatement.Bind(tweet.Id, tweet.UserID, tweet.CreationTime, tweet.tweet,
+                tweet.ImageURL));
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+    }
+
+    public IEnumerable<Tweets> GetTweetsByUser(string userId)
+    {
+        
+        var listOfTweets = _mapper.Fetch<Tweets>("Select * from tweets where userid = ?", userId);
+        return listOfTweets;
+    }
+
+    public IEnumerable<IEnumerable<Tweets>> GetTweetsTimeline(IEnumerable<string> followees)
+    {
+        IEnumerable<IEnumerable<Tweets>> timeline = new List<IEnumerable<Tweets>>();
+        foreach (var userId in followees)
+        {
+            try
+            {
+                var temp_timeline = _mapper.Fetch<Tweets>("Select * from tweets where userid = ?", userId);
+                timeline.Append(temp_timeline);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error fetching timeline for user " + userId);
+            }
+        }
+        return timeline;
+    }
+
+    public Tweets GetTweetsById(string tweetId)
+    {
+        Tweets tweet = _mapper.FirstOrDefault<Tweets>("Select * from tweets where tweetid = ?", tweetId);
+        return tweet;
+    }
+
+    public void DeleteTweets(string tweetId)
+    {
+        _mapper.Delete("DELETE FROM tweeteer.tweets WHERE tweetid=? ", tweetId);
     }
     public static bool ValidateServerCertificate(
         object sender,
