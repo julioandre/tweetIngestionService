@@ -24,7 +24,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+//SeedingData.InitializeData(app);
 app.UseAuthorization();
 
 app.MapControllers();

@@ -3,6 +3,7 @@ using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
 using Cassandra;
 using Cassandra.Mapping;
+using Newtonsoft.Json;
 using tweetIngestion_service.Models;
 using ISession = Cassandra.ISession;
 
@@ -11,9 +12,12 @@ namespace tweetIngestion_service.Services;
 public class TweetIngestionService :ITweetIngestion
 {
     private ICluster _cluster;
+    private static string _jsonfilepath =
+        "/Users/julioandre/RiderProjects/tweetIngestion-service/tweetIngestion-service/DummyData/tweet_Data.json";
+
     private ISession _session;
     private IMapper _mapper;
-    private string insertStatement  = "INSERT INTO  tweeteer.tweets (tweetid , userid,creationtime,tweet,imageurl) VALUES (?,?,?,?,?)";
+    private string insertStatement  = "INSERT INTO  tweeter.tweets (tweetid , userid,creationtime,tweet,imageurl) VALUES (?,?,?,?,?)";
     //private string deleteStatement = "DELETE FROM tweeteer.tweets WHERE (tweetid) VAlLUES (?)";
 
     public TweetIngestionService()
@@ -79,7 +83,32 @@ public class TweetIngestionService :ITweetIngestion
 
     public void DeleteTweets(string tweetId)
     {
-        _mapper.Delete("DELETE FROM tweeteer.tweets WHERE tweetid=? ", tweetId);
+        _mapper.Delete("DELETE FROM tweeter.tweets WHERE tweetid=? ", tweetId);
+    }
+
+    public void createMockTweets()
+    {
+        var _dummyData = ConvertingJson();
+        foreach (var tweet in _dummyData)
+        {
+            var boundStatement = _session.Prepare(insertStatement);
+            try
+            {
+                _session.Execute(boundStatement.Bind(tweet.Id, tweet.UserID, tweet.CreationTime, tweet.tweet,
+                    tweet.ImageURL));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+    }
+    public static List<Tweets> ConvertingJson()
+    {
+        using StreamReader reader = new(_jsonfilepath);
+        var json = reader.ReadToEnd();
+        List<Tweets> tweets = JsonConvert.DeserializeObject<List<Tweets>>(json);
+        return tweets;
     }
     public static bool ValidateServerCertificate(
         object sender,

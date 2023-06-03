@@ -32,6 +32,14 @@ namespace tweetIngestion_service.Controllers
             _tweetIngestion.createTweet(tweets);
             return Ok(CreatedAtRoute(nameof(tweets.Id), new { Id = tweets.Id }, tweets));
         }
+        [HttpPost]
+        [Route("/tweetscreatemock")]
+        public async Task<ActionResult> CreateTweets()
+        {
+
+            _tweetIngestion.createMockTweets();
+            return Ok();
+        }
 
         [HttpGet]
         [Route("/timelinetweets")]

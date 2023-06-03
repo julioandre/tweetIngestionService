@@ -96,3 +96,5 @@
 /Users/julioandre/RiderProjects/tweetIngestion-service/tweetIngestion-service/bin/Debug/net7.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
 /Users/julioandre/RiderProjects/tweetIngestion-service/tweetIngestion-service/bin/Debug/net7.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
 /Users/julioandre/RiderProjects/tweetIngestion-service/tweetIngestion-service/bin/Debug/net7.0/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
+/Users/julioandre/RiderProjects/tweetIngestion-service/tweetIngestion-service/bin/Debug/net7.0/DummyData/tweets_Data.json
+/Users/julioandre/RiderProjects/tweetIngestion-service/tweetIngestion-service/bin/Debug/net7.0/DummyData/tweet_Data.json
