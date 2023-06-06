@@ -59,7 +59,23 @@
               "target": "Package",
               "version": "[2.2.16, )"
             },
+            "KafkaFlow.LogHandler.Console": {
+              "target": "Package",
+              "version": "[2.2.16, )"
+            },
+            "KafkaFlow.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[2.2.16, )"
+            },
             "KafkaFlow.Serializer": {
+              "target": "Package",
+              "version": "[2.2.16, )"
+            },
+            "KafkaFlow.Serializer.JsonCore": {
+              "target": "Package",
+              "version": "[2.2.16, )"
+            },
+            "KafkaFlow.TypedHandler": {
               "target": "Package",
               "version": "[2.2.16, )"
             },

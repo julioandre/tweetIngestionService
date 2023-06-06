@@ -5,6 +5,7 @@ using Cassandra.Mapping;
 using Microsoft.AspNetCore.Mvc;
 using ISession = Cassandra.ISession;
 using System.Security.Cryptography.X509Certificates;
+using KafkaFlow.Producers;
 using tweetIngestion_service.Models;
 using tweetIngestion_service.Services;
 
@@ -19,17 +20,34 @@ namespace tweetIngestion_service.Controllers
         private ISession _session;
         private IMapper _mapper;
         private ITweetIngestion _tweetIngestion;
-        public tweetIngestionController(ITweetIngestion tweetIngestion)
+        private IProducerAccessor _producer;
+        public tweetIngestionController(ITweetIngestion tweetIngestion, IProducerAccessor producer)
         {
            _tweetIngestion = tweetIngestion;
+           _producer = producer;
         }
 
         [HttpPost]
         [Route("/tweets")]
         public async Task<ActionResult<Tweets>> CreateTweets(Tweets tweets)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-            _tweetIngestion.createTweet(tweets);
+            try
+            {
+                _tweetIngestion.createTweet(tweets);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500);
+            }
+            
+            var producer = _producer.GetProducer("update-timeline");
+            await producer.ProduceAsync("key",tweets);
+            
             return Ok(CreatedAtRoute(nameof(tweets.Id), new { Id = tweets.Id }, tweets));
         }
         [HttpPost]

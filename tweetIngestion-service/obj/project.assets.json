@@ -189,6 +189,41 @@
           }
         }
       },
+      "KafkaFlow.LogHandler.Console/2.2.16": {
+        "type": "package",
+        "dependencies": {
+          "KafkaFlow.Abstractions": "2.2.16",
+          "System.Text.Json": "4.7.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/KafkaFlow.LogHandler.Console.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/KafkaFlow.LogHandler.Console.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "KafkaFlow.Microsoft.DependencyInjection/2.2.16": {
+        "type": "package",
+        "dependencies": {
+          "KafkaFlow": "2.2.16",
+          "KafkaFlow.Abstractions": "2.2.16",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.17"
+        },
+        "compile": {
+          "lib/netstandard2.0/KafkaFlow.Microsoft.DependencyInjection.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/KafkaFlow.Microsoft.DependencyInjection.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "KafkaFlow.Serializer/2.2.16": {
         "type": "package",
         "dependencies": {
@@ -202,6 +237,39 @@
         },
         "runtime": {
           "lib/netstandard2.0/KafkaFlow.Serializer.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "KafkaFlow.Serializer.JsonCore/2.2.16": {
+        "type": "package",
+        "dependencies": {
+          "KafkaFlow.Abstractions": "2.2.16",
+          "System.Text.Json": "4.7.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/KafkaFlow.Serializer.JsonCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/KafkaFlow.Serializer.JsonCore.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "KafkaFlow.TypedHandler/2.2.16": {
+        "type": "package",
+        "dependencies": {
+          "KafkaFlow.Abstractions": "2.2.16"
+        },
+        "compile": {
+          "lib/netstandard2.0/KafkaFlow.TypedHandler.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/KafkaFlow.TypedHandler.dll": {
             "related": ".xml"
           }
         }
@@ -2631,6 +2699,32 @@
         "lib/netstandard2.0/KafkaFlow.Abstractions.xml"
       ]
     },
+    "KafkaFlow.LogHandler.Console/2.2.16": {
+      "sha512": "xsczegU8Q/4EGHqdyCe0v96SQmSWdcCAYnFqjK7/VLowYvCWwrXzrb52Jg/Z9nKMk5EDSHL6dJuyA9qDGcoipg==",
+      "type": "package",
+      "path": "kafkaflow.loghandler.console/2.2.16",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "kafkaflow.loghandler.console.2.2.16.nupkg.sha512",
+        "kafkaflow.loghandler.console.nuspec",
+        "lib/netstandard2.0/KafkaFlow.LogHandler.Console.dll",
+        "lib/netstandard2.0/KafkaFlow.LogHandler.Console.xml"
+      ]
+    },
+    "KafkaFlow.Microsoft.DependencyInjection/2.2.16": {
+      "sha512": "VrdytDuJkzkLQZ5D8D9f5ZazL2S9KsOCvukawr0EMo55RuYg8LEjuBUM2pEDZaCYskjo6Sxscxi6Y4uyU38Plg==",
+      "type": "package",
+      "path": "kafkaflow.microsoft.dependencyinjection/2.2.16",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "kafkaflow.microsoft.dependencyinjection.2.2.16.nupkg.sha512",
+        "kafkaflow.microsoft.dependencyinjection.nuspec",
+        "lib/netstandard2.0/KafkaFlow.Microsoft.DependencyInjection.dll",
+        "lib/netstandard2.0/KafkaFlow.Microsoft.DependencyInjection.xml"
+      ]
+    },
     "KafkaFlow.Serializer/2.2.16": {
       "sha512": "4Vz1arEcaGBEW2Fd9ddswSf2c9pltaA5UeimHmB3SwF0sDYzPH/pE3+keweEK7WEKKs6rsAGHjyMYyOVmtT09w==",
       "type": "package",
@@ -2642,6 +2736,32 @@
         "kafkaflow.serializer.nuspec",
         "lib/netstandard2.0/KafkaFlow.Serializer.dll",
         "lib/netstandard2.0/KafkaFlow.Serializer.xml"
+      ]
+    },
+    "KafkaFlow.Serializer.JsonCore/2.2.16": {
+      "sha512": "+vxxyUXdlS5YPUs9MnJe14sCiqpTznEceNSvePOBVRaOl9Ez45KTGxXA92h3mOCX4XCo7bho2qlxceii8QEALg==",
+      "type": "package",
+      "path": "kafkaflow.serializer.jsoncore/2.2.16",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "kafkaflow.serializer.jsoncore.2.2.16.nupkg.sha512",
+        "kafkaflow.serializer.jsoncore.nuspec",
+        "lib/netstandard2.0/KafkaFlow.Serializer.JsonCore.dll",
+        "lib/netstandard2.0/KafkaFlow.Serializer.JsonCore.xml"
+      ]
+    },
+    "KafkaFlow.TypedHandler/2.2.16": {
+      "sha512": "z6rzyr3fZzwLRL3xTsLV3xop2JUl8nEYWqcuJTFHX2ih5VbgVirMglEEnXMBvS9Bc6jaQuQiJoXV0baUyTSdRg==",
+      "type": "package",
+      "path": "kafkaflow.typedhandler/2.2.16",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "kafkaflow.typedhandler.2.2.16.nupkg.sha512",
+        "kafkaflow.typedhandler.nuspec",
+        "lib/netstandard2.0/KafkaFlow.TypedHandler.dll",
+        "lib/netstandard2.0/KafkaFlow.TypedHandler.xml"
       ]
     },
     "librdkafka.redist/2.1.1": {
@@ -7243,7 +7363,11 @@
       "Confluent.Kafka >= 2.1.1",
       "EFCore.Cassandra >= 2.0.5",
       "KafkaFlow >= 2.2.16",
+      "KafkaFlow.LogHandler.Console >= 2.2.16",
+      "KafkaFlow.Microsoft.DependencyInjection >= 2.2.16",
       "KafkaFlow.Serializer >= 2.2.16",
+      "KafkaFlow.Serializer.JsonCore >= 2.2.16",
+      "KafkaFlow.TypedHandler >= 2.2.16",
       "Microsoft.AspNetCore.OpenApi >= 7.0.5",
       "Microsoft.Azure.Cosmos >= 3.34.0",
       "Microsoft.EntityFrameworkCore >= 7.0.5",
@@ -7312,7 +7436,23 @@
             "target": "Package",
             "version": "[2.2.16, )"
           },
+          "KafkaFlow.LogHandler.Console": {
+            "target": "Package",
+            "version": "[2.2.16, )"
+          },
+          "KafkaFlow.Microsoft.DependencyInjection": {
+            "target": "Package",
+            "version": "[2.2.16, )"
+          },
           "KafkaFlow.Serializer": {
+            "target": "Package",
+            "version": "[2.2.16, )"
+          },
+          "KafkaFlow.Serializer.JsonCore": {
+            "target": "Package",
+            "version": "[2.2.16, )"
+          },
+          "KafkaFlow.TypedHandler": {
             "target": "Package",
             "version": "[2.2.16, )"
           },

@@ -13,7 +13,11 @@
           "Confluent.Kafka": "2.1.1",
           "EFCore.Cassandra": "2.0.5",
           "KafkaFlow": "2.2.16",
+          "KafkaFlow.LogHandler.Console": "2.2.16",
+          "KafkaFlow.Microsoft.DependencyInjection": "2.2.16",
           "KafkaFlow.Serializer": "2.2.16",
+          "KafkaFlow.Serializer.JsonCore": "2.2.16",
+          "KafkaFlow.TypedHandler": "2.2.16",
           "Microsoft.AspNetCore.OpenApi": "7.0.5",
           "Microsoft.Azure.Cosmos": "3.34.0",
           "Microsoft.EntityFrameworkCore": "7.0.5",
@@ -167,6 +171,31 @@
           }
         }
       },
+      "KafkaFlow.LogHandler.Console/2.2.16": {
+        "dependencies": {
+          "KafkaFlow.Abstractions": "2.2.16",
+          "System.Text.Json": "7.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/KafkaFlow.LogHandler.Console.dll": {
+            "assemblyVersion": "2.2.16.0",
+            "fileVersion": "2.2.16.0"
+          }
+        }
+      },
+      "KafkaFlow.Microsoft.DependencyInjection/2.2.16": {
+        "dependencies": {
+          "KafkaFlow": "2.2.16",
+          "KafkaFlow.Abstractions": "2.2.16",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/KafkaFlow.Microsoft.DependencyInjection.dll": {
+            "assemblyVersion": "2.2.16.0",
+            "fileVersion": "2.2.16.0"
+          }
+        }
+      },
       "KafkaFlow.Serializer/2.2.16": {
         "dependencies": {
           "KafkaFlow.Abstractions": "2.2.16",
@@ -174,6 +203,29 @@
         },
         "runtime": {
           "lib/netstandard2.0/KafkaFlow.Serializer.dll": {
+            "assemblyVersion": "2.2.16.0",
+            "fileVersion": "2.2.16.0"
+          }
+        }
+      },
+      "KafkaFlow.Serializer.JsonCore/2.2.16": {
+        "dependencies": {
+          "KafkaFlow.Abstractions": "2.2.16",
+          "System.Text.Json": "7.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/KafkaFlow.Serializer.JsonCore.dll": {
+            "assemblyVersion": "2.2.16.0",
+            "fileVersion": "2.2.16.0"
+          }
+        }
+      },
+      "KafkaFlow.TypedHandler/2.2.16": {
+        "dependencies": {
+          "KafkaFlow.Abstractions": "2.2.16"
+        },
+        "runtime": {
+          "lib/netstandard2.0/KafkaFlow.TypedHandler.dll": {
             "assemblyVersion": "2.2.16.0",
             "fileVersion": "2.2.16.0"
           }
@@ -1480,12 +1532,40 @@
       "path": "kafkaflow.abstractions/2.2.16",
       "hashPath": "kafkaflow.abstractions.2.2.16.nupkg.sha512"
     },
+    "KafkaFlow.LogHandler.Console/2.2.16": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xsczegU8Q/4EGHqdyCe0v96SQmSWdcCAYnFqjK7/VLowYvCWwrXzrb52Jg/Z9nKMk5EDSHL6dJuyA9qDGcoipg==",
+      "path": "kafkaflow.loghandler.console/2.2.16",
+      "hashPath": "kafkaflow.loghandler.console.2.2.16.nupkg.sha512"
+    },
+    "KafkaFlow.Microsoft.DependencyInjection/2.2.16": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VrdytDuJkzkLQZ5D8D9f5ZazL2S9KsOCvukawr0EMo55RuYg8LEjuBUM2pEDZaCYskjo6Sxscxi6Y4uyU38Plg==",
+      "path": "kafkaflow.microsoft.dependencyinjection/2.2.16",
+      "hashPath": "kafkaflow.microsoft.dependencyinjection.2.2.16.nupkg.sha512"
+    },
     "KafkaFlow.Serializer/2.2.16": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-4Vz1arEcaGBEW2Fd9ddswSf2c9pltaA5UeimHmB3SwF0sDYzPH/pE3+keweEK7WEKKs6rsAGHjyMYyOVmtT09w==",
       "path": "kafkaflow.serializer/2.2.16",
       "hashPath": "kafkaflow.serializer.2.2.16.nupkg.sha512"
+    },
+    "KafkaFlow.Serializer.JsonCore/2.2.16": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+vxxyUXdlS5YPUs9MnJe14sCiqpTznEceNSvePOBVRaOl9Ez45KTGxXA92h3mOCX4XCo7bho2qlxceii8QEALg==",
+      "path": "kafkaflow.serializer.jsoncore/2.2.16",
+      "hashPath": "kafkaflow.serializer.jsoncore.2.2.16.nupkg.sha512"
+    },
+    "KafkaFlow.TypedHandler/2.2.16": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-z6rzyr3fZzwLRL3xTsLV3xop2JUl8nEYWqcuJTFHX2ih5VbgVirMglEEnXMBvS9Bc6jaQuQiJoXV0baUyTSdRg==",
+      "path": "kafkaflow.typedhandler/2.2.16",
+      "hashPath": "kafkaflow.typedhandler.2.2.16.nupkg.sha512"
     },
     "librdkafka.redist/2.1.1": {
       "type": "package",

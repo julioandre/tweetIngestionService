@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7AsHGOiOn0Ur7vKTQNVZb+QZH/UOsx62Eqeq2jrX6zliqlarR3n5Pblf90tUqO99xU1bJrhcYdzJboC/4zd+Bw==",
+  "dgSpecHash": "57P6BjIOoedISWOuS+HSgFm8UFAZI88XOccO2tBR+cFYVyj+3b7D4wPsQxRXRGNkBZPrvffDyaskfd9Zs4AhzA==",
   "success": true,
   "projectFilePath": "/Users/julioandre/RiderProjects/tweetIngestion-service/tweetIngestion-service/tweetIngestion-service.csproj",
   "expectedPackageFiles": [
@@ -15,7 +15,11 @@
     "/Users/julioandre/.nuget/packages/k4os.compression.lz4/1.1.11/k4os.compression.lz4.1.1.11.nupkg.sha512",
     "/Users/julioandre/.nuget/packages/kafkaflow/2.2.16/kafkaflow.2.2.16.nupkg.sha512",
     "/Users/julioandre/.nuget/packages/kafkaflow.abstractions/2.2.16/kafkaflow.abstractions.2.2.16.nupkg.sha512",
+    "/Users/julioandre/.nuget/packages/kafkaflow.loghandler.console/2.2.16/kafkaflow.loghandler.console.2.2.16.nupkg.sha512",
+    "/Users/julioandre/.nuget/packages/kafkaflow.microsoft.dependencyinjection/2.2.16/kafkaflow.microsoft.dependencyinjection.2.2.16.nupkg.sha512",
     "/Users/julioandre/.nuget/packages/kafkaflow.serializer/2.2.16/kafkaflow.serializer.2.2.16.nupkg.sha512",
+    "/Users/julioandre/.nuget/packages/kafkaflow.serializer.jsoncore/2.2.16/kafkaflow.serializer.jsoncore.2.2.16.nupkg.sha512",
+    "/Users/julioandre/.nuget/packages/kafkaflow.typedhandler/2.2.16/kafkaflow.typedhandler.2.2.16.nupkg.sha512",
     "/Users/julioandre/.nuget/packages/librdkafka.redist/2.1.1/librdkafka.redist.2.1.1.nupkg.sha512",
     "/Users/julioandre/.nuget/packages/microsoft.aspnetcore.openapi/7.0.5/microsoft.aspnetcore.openapi.7.0.5.nupkg.sha512",
     "/Users/julioandre/.nuget/packages/microsoft.azure.cosmos/3.34.0/microsoft.azure.cosmos.3.34.0.nupkg.sha512",

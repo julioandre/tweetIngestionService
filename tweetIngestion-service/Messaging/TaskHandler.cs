@@ -1,6 +1,7 @@
 
 using AutoMapper;
 using Confluent.Kafka;
+using KafkaFlow.Producers;
 using Newtonsoft.Json;
 using tweetIngestion_service.Models;
 using tweetIngestion_service.Services;
@@ -10,17 +11,18 @@ namespace tweetIngestion_service.Messaging;
 public class TaskHandler:ITaskHandler
 {
     private readonly ILogger<string> _logger;
-    
+    private IProducerAccessor _producer;
     private readonly string bootstrapServers = "127.0.0.1:9092";
     private ITweetIngestion _tweetIngestion;
     private readonly IMapper _mapper;
 
-    public TaskHandler( ITweetIngestion tweetIngestion, ILogger<string> logger, IMapper mapper)
+    public TaskHandler( ITweetIngestion tweetIngestion, ILogger<string> logger, IMapper mapper,IProducerAccessor producerAccessor)
     {
         _logger = logger;
         _tweetIngestion = tweetIngestion;
         _mapper = mapper;
-        
+        _producer = producerAccessor;
+
     }
     public async Task HandleTweets(CancellationToken stoppingToken)
     {
@@ -58,6 +60,9 @@ public class TaskHandler:ITaskHandler
                             
                             var stuff =_tweetIngestion.GetTweetsTimeline(followeeList);
                             var timelineInfo = new tweetProcessorDTO(orderRequest[0].followerId, stuff);
+                            var producer = _producer.GetProducer("put-timeline");
+                            await producer.ProduceAsync("key",timelineInfo);
+                            
                             
                         }
 
