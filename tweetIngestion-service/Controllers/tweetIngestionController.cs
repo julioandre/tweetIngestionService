@@ -36,7 +36,7 @@ namespace tweetIngestion_service.Controllers
         [Route("/tweetscreatemock")]
         public async Task<ActionResult> CreateTweets()
         {
-
+        
             _tweetIngestion.createMockTweets();
             return Ok();
         }

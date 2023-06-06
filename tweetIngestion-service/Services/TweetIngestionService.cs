@@ -57,20 +57,21 @@ public class TweetIngestionService :ITweetIngestion
         return listOfTweets;
     }
 
-    public IEnumerable<IEnumerable<Tweets>> GetTweetsTimeline(IEnumerable<string> followees)
+    public List<Tweets> GetTweetsTimeline(IEnumerable<string> followees)
     {
-        IEnumerable<IEnumerable<Tweets>> timeline = new List<IEnumerable<Tweets>>();
+        List<Tweets> timeline = new List<Tweets>();
         foreach (var userId in followees)
         {
+            Console.WriteLine(userId);
             try
             {
-                var temp_timeline = _mapper.Fetch<Tweets>("Select * from tweets where userid = ?", userId);
-                timeline.Append(temp_timeline);
+                var temp_timeline =_mapper.Fetch<Tweets>("Select * from tweets where userid = ?", userId);
+                timeline.AddRange(temp_timeline);
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error fetching timeline for user " + userId);
-            }
+            } 
         }
         return timeline;
     }
