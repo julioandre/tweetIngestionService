@@ -112,6 +112,18 @@ tests:
   script:
     - 'dotnet test --no-restore'
 
+build_image:
+  image: docker@sha256:c8bb6fa5388b56304dd770c4bc0478de81ce18540173b1a589178c0d31bfce90
+  services:
+    - docker:dind@sha256:c8bb6fa5388b56304dd770c4bc0478de81ce18540173b1a589178c0d31bfce90
+  variables:
+    DOCKER_TLS_CERTDIR: "/certs"
+  before_script:
+    - docker login -u julioandre -p Ppg31ast10 
+  script:
+    - docker build -t julioandre/tweetingestionservice .
+    
+    - docker push julioandre/tweetingestionservice
 deploy:
   stage: deploy
   script: echo "Define your deployment script!"
