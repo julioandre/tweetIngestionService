@@ -1,0 +1,244 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/julioandre/RiderProjects/tweetIngestion-service/tweetIngestionIntegrationTests/tweetIngestionIntegrationTests.csproj": {}
+  },
+  "projects": {
+    "/Users/julioandre/RiderProjects/tweetIngestion-service/tweetIngestion-service/tweetIngestion-service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/julioandre/RiderProjects/tweetIngestion-service/tweetIngestion-service/tweetIngestion-service.csproj",
+        "projectName": "tweetIngestion-service",
+        "projectPath": "/Users/julioandre/RiderProjects/tweetIngestion-service/tweetIngestion-service/tweetIngestion-service.csproj",
+        "packagesPath": "/Users/julioandre/.nuget/packages/",
+        "outputPath": "/Users/julioandre/RiderProjects/tweetIngestion-service/tweetIngestion-service/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/julioandre/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/sdk/7.0.302/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "CassandraCSharpDriver": {
+              "target": "Package",
+              "version": "[3.19.2, )"
+            },
+            "Confluent.Kafka": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "EFCore.Cassandra": {
+              "target": "Package",
+              "version": "[2.0.5, )"
+            },
+            "FakeItEasy": {
+              "target": "Package",
+              "version": "[8.0.0-alpha.1, )"
+            },
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[6.11.0, )"
+            },
+            "KafkaFlow": {
+              "target": "Package",
+              "version": "[2.2.16, )"
+            },
+            "KafkaFlow.LogHandler.Console": {
+              "target": "Package",
+              "version": "[2.2.16, )"
+            },
+            "KafkaFlow.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[2.2.16, )"
+            },
+            "KafkaFlow.Serializer": {
+              "target": "Package",
+              "version": "[2.2.16, )"
+            },
+            "KafkaFlow.Serializer.JsonCore": {
+              "target": "Package",
+              "version": "[2.2.16, )"
+            },
+            "KafkaFlow.TypedHandler": {
+              "target": "Package",
+              "version": "[2.2.16, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Testing": {
+              "target": "Package",
+              "version": "[7.0.7, )"
+            },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.Azure.Cosmos": {
+              "target": "Package",
+              "version": "[3.34.0, )"
+            },
+            "Microsoft.Data.Sqlite": {
+              "target": "Package",
+              "version": "[7.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Cosmos": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            },
+            "System.Security.Cryptography.X509Certificates": {
+              "target": "Package",
+              "version": "[4.3.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/julioandre/RiderProjects/tweetIngestion-service/tweetIngestionIntegrationTests/tweetIngestionIntegrationTests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/julioandre/RiderProjects/tweetIngestion-service/tweetIngestionIntegrationTests/tweetIngestionIntegrationTests.csproj",
+        "projectName": "tweetIngestionIntegrationTests",
+        "projectPath": "/Users/julioandre/RiderProjects/tweetIngestion-service/tweetIngestionIntegrationTests/tweetIngestionIntegrationTests.csproj",
+        "packagesPath": "/Users/julioandre/.nuget/packages/",
+        "outputPath": "/Users/julioandre/RiderProjects/tweetIngestion-service/tweetIngestionIntegrationTests/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/julioandre/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/julioandre/RiderProjects/tweetIngestion-service/tweetIngestion-service/tweetIngestion-service.csproj": {
+                "projectPath": "/Users/julioandre/RiderProjects/tweetIngestion-service/tweetIngestion-service/tweetIngestion-service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Testing": {
+              "target": "Package",
+              "version": "[7.0.7, )"
+            },
+            "Microsoft.Data.Sqlite": {
+              "target": "Package",
+              "version": "[7.0.7, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.5.0, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.2, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

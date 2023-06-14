@@ -4,7 +4,7 @@ namespace tweetIngestion_service.Services;
 
 public interface ITweetIngestion
 {
-    void createTweet(Tweets tweet);
+    void createTweet(TweetDTO tweet);
     IEnumerable<Tweets> GetTweetsByUser(string userId);
     public List<Tweets> GetTweetsTimeline(IEnumerable<string> followees);
     public Tweets GetTweetsById(string tweetId);

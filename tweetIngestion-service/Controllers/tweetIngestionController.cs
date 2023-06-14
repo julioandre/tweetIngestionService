@@ -1,10 +1,5 @@
-using System.Net.Security;
-using System.Security.Authentication;
-using Cassandra;
-using Cassandra.Mapping;
+
 using Microsoft.AspNetCore.Mvc;
-using ISession = Cassandra.ISession;
-using System.Security.Cryptography.X509Certificates;
 using KafkaFlow.Producers;
 using tweetIngestion_service.Models;
 using tweetIngestion_service.Services;
@@ -16,20 +11,20 @@ namespace tweetIngestion_service.Controllers
     [Route("/api/[controller]")]
     public class tweetIngestionController : ControllerBase
     {
-        private ICluster _cluster;
-        private ISession _session;
-        private IMapper _mapper;
+      
         private ITweetIngestion _tweetIngestion;
         private IProducerAccessor _producer;
+
         public tweetIngestionController(ITweetIngestion tweetIngestion, IProducerAccessor producer)
         {
-           _tweetIngestion = tweetIngestion;
-           _producer = producer;
+            _tweetIngestion = tweetIngestion;
+            _producer = producer;
+
         }
 
         [HttpPost]
         [Route("/tweets")]
-        public async Task<ActionResult<Tweets>> CreateTweets(Tweets tweets)
+        public  ActionResult<Tweets> CreateTweets(TweetDTO tweets)
         {
             if (!ModelState.IsValid)
             {
@@ -46,53 +41,30 @@ namespace tweetIngestion_service.Controllers
             }
             
             var producer = _producer.GetProducer("update-timeline");
-            await producer.ProduceAsync("key",tweets);
+            producer.ProduceAsync("key",tweets);
             
-            return Ok(CreatedAtRoute(nameof(tweets.Id), new { Id = tweets.Id }, tweets));
+            return Ok(nameof(tweets.UserID)+ "Has been sent successfully");
         }
-        [HttpPost]
-        [Route("/tweetscreatemock")]
-        public async Task<ActionResult> CreateTweets()
-        {
         
-            _tweetIngestion.createMockTweets();
-            return Ok();
-        }
 
         [HttpGet]
         [Route("/timelinetweets")]
 
-        public async Task<ActionResult<IEnumerable<Tweets>>> GetTimelineTweets(IEnumerable<string> userIds)
+        public ActionResult<IEnumerable<Tweets>> GetTimelineTweets(IEnumerable<string> userIds)
         {
             var timeline = _tweetIngestion.GetTweetsTimeline(userIds);
             return Ok(timeline);
         }
         [HttpGet]
-        [Route("/tweetsbyuser")]
+        [Route("/tweetsbyuser/{userId}")]
 
-        public async Task<ActionResult<IEnumerable<Tweets>>> GetTweetsByUser(string userId)
+        public ActionResult<IEnumerable<Tweets>> GetTweetsByUser(string userId)
         {
+            Console.WriteLine(userId);
             var tweets = _tweetIngestion.GetTweetsByUser(userId);
             return Ok(tweets);
         }
 
-        public static bool ValidateServerCertificate(
-            object sender,
-            X509Certificate certificate,
-            X509Chain chain,
-            SslPolicyErrors sslPolicyErrors)
-        {
-            if (sslPolicyErrors == SslPolicyErrors.None)
-            {
-
-                Console.WriteLine("No Errors");
-                return true;
-            }
-
-
-            Console.WriteLine("Certificate error: {0}");
-            // Do not allow this client to communicate with unauthenticated servers.
-            return false;
-        }
+        
     }
 }

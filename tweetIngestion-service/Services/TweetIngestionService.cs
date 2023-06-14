@@ -34,8 +34,9 @@ public class TweetIngestionService :ITweetIngestion
         _session = _cluster.Connect("tweeter");
         _mapper = new Mapper(_session);
     }
-    public void createTweet(Tweets tweet)
+    public void createTweet(TweetDTO tweets)
     {
+        Tweets tweet = new Tweets(Guid.NewGuid().ToString(),tweets.UserID,DateTime.Now, tweets.tweet,tweets.ImageUrl);
         
         var boundStatement = _session.Prepare(insertStatement);
         try

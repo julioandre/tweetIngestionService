@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Cassandra;
 using Microsoft.EntityFrameworkCore;
 
 namespace tweetIngestion_service.Models;
