@@ -17,6 +17,12 @@
 # See other available tags for .NET Core: https://hub.docker.com/_/microsoft-dotnet
 # Learn more about Docker tags: https://docs.docker.com/glossary/?term=tag
 # and the Docker itself: https://opensource.com/resources/what-docker
+stages:
+  - build
+  - test 
+  - deploy
+  - dockerize
+  
 image: mcr.microsoft.com/dotnet/sdk:latest
 
 # ### Define variables
@@ -113,6 +119,7 @@ tests:
     - 'dotnet test --no-restore'
 
 build_image:
+  stage: dockerize
   image: docker@sha256:c8bb6fa5388b56304dd770c4bc0478de81ce18540173b1a589178c0d31bfce90
   services:
     - docker:dind@sha256:c8bb6fa5388b56304dd770c4bc0478de81ce18540173b1a589178c0d31bfce90
@@ -121,10 +128,6 @@ build_image:
   before_script:
     - docker login -u julioandre -p Ppg31ast10 
   script:
-    - docker build -t julioandre/tweetingestionservice .
+    - docker build -t julioandre/tweetprocessorservice .
     
-    - docker push julioandre/tweetingestionservice
-deploy:
-  stage: deploy
-  script: echo "Define your deployment script!"
-  environment: production
+    - docker push julioandre/tweetprocessorservice
